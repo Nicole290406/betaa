@@ -2,7 +2,7 @@
 
 '''
     Date: 06-jun-2025
-    Dav: Marlon Lopes
+    Dav: Nicole Mosquera
 '''
 data1 = 10
 data2 = 3,50
