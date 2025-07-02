@@ -6,8 +6,8 @@
 '''
 data1 = 10
 data2 = 3,50
-data3 = "MArlon L."
-data4 = 'Lopes'
+data3 = "Nicole"
+data4 = 'Mosquera'
 data5 = '''
             Hello people, we are learning Python.
             That's wonderful.

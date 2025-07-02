@@ -10,73 +10,69 @@ Other: Clear screen
 import os
 
 def calc(x, y, z):
-    if(z == '1'):
-        ans = x + y
-
-    if(z == '2'):
-        ans = x - y
-
-    if(z == '3'):
-        ans = x * y
-
-    if(z == '4'):
-        ans = x / y        
-    
-    return ans
+    if z == '1':
+        return x + y
+    if z == '2':
+        return x - y
+    if z == '3':
+        return x * y
+    if z == '4':
+        if y == 0:
+            return "Dato invalido (división por cero)"
+        return x / y
+    return "Opción inválida"
 
 def calc2(x, y, z):
-    if(z == '1'):
-        ans = x + y
-    else: 
-        if(z == '2'):
-            ans = x - y   
-        else:
-            if(z == '3'):
-                ans = x * y
-            else:
-                if(z == '4'):
-                    ans = x / y
-
-    return ans
+    if z == '1':
+        return x + y
+    elif z == '2':
+        return x - y
+    elif z == '3':
+        return x * y
+    elif z == '4':
+        if y == 0:
+            return "Dato invalido (división por cero)"
+        return x / y
+    return "Opción inválida"
 
 def calc3(x, y, z):
-    if (z == '1'):
-        ans = x + y
-    elif (z == '2'):
-        ans = x - y
-    elif (z == '3'):
-        ans = x * y
-    elif (z == '5'):
-        ans = (x + y) (x - y) (x * y) (x / y)
-        
-    elif (z == '4'):
+    if z == '1':
+        return x + y
+    elif z == '2':
+        return x - y
+    elif z == '3':
+        return x * y
+    elif z == '4':
         if y == 0:
-            return "Dato invalido"
-        else:
-            return x / y
+            return "Dato invalido (división por cero)"
+        return x / y
+    elif z == '5':
+       
+        results = f"""
+        Suma: {x + y}
+        Resta: {x - y}
+        Multiplicación: {x * y}
+        División: {"Dato invalido (división por cero)" if y == 0 else x / y}
+        """
+        return results.strip()
     else:
-        return "Por favor, elija una opción del 1 al 4."
-   
-    return ans
-    
+        return "Por favor, elija una opción del 1 al 5."
 
-#### Main ####
-num1 = float(input('Press first number: '))
-num2 = float(input('Press second number: '))
+def calc4():
+    os.system("cls" if os.name == "nt" else "clear")  
 
-print("### MAIN MENU ###")
-print("[1]. Add")
-print("[2]. Sub")
-print("[3]. Mul")
-print("[4]. Div")
-print("[5]. all")
-opt = input("::. Press any option: ")
+    num1 = float(input('Ingrese el primer número: '))
+    num2 = float(input('Ingrese el segundo número: '))
 
-res = calc(num1, num2, opt)
-print(f"The result whit f1 is: {res}")
+    print("### MENÚ PRINCIPAL ###")
+    print("[1]. Sumar")
+    print("[2]. Restar")
+    print("[3]. Multiplicar")
+    print("[4]. Dividir")
+    print("[5]. Todas las operaciones")
+    opt = input("::. Elija una opción: ")
 
-res2 = calc2(num1, num2, opt)
-print(f"The result with f2 is: {res2}")
+    resultado = calc3(num1, num2, opt)  
+    print(f"\nResultado con función 4:\n{resultado}")
 
-res3 = calc3(num1, num2, opt)
-print(f"The result whit f3 is: {res3}")
+calc4()
